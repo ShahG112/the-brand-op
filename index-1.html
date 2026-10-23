@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Brand Op — personal portfolio, gaming, content and creative projects.">
+  <meta name="theme-color" content="#ffffff">
+  <title>The Brand Op | Official Portfolio</title>
+  <style>
+    :root{--ink:#111827;--muted:#5b6472;--line:#e5e7eb;--soft:#f3f6fa;--blue:#2563eb;--white:#fff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--white);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1080px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.04em}
+    .mark{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:var(--ink);color:#fff;font-size:19px}
+    .brand small{display:block;font-size:10px;color:var(--muted);letter-spacing:.16em;font-weight:700}
+    .links{display:flex;gap:26px;align-items:center;font-size:14px;color:#374151}
+    .links a:hover,.textlink:hover{color:var(--blue)}
+    .menu{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font-size:18px}
+    .hero{padding:94px 0 74px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:7px 12px;color:#4b5563;font-size:12px;font-weight:750;letter-spacing:.1em}
+    .dot{width:7px;height:7px;border-radius:50%;background:#2563eb}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.04;letter-spacing:-.055em;max-width:850px;margin:24px 0 22px}
+    .gradient{background:linear-gradient(110deg,#111827,#2563eb);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .intro{max-width:650px;color:var(--muted);font-size:clamp(17px,2.2vw,20px);margin:0}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:12px;padding:13px 18px;font-weight:750;font-size:14px;border:1px solid var(--line);transition:transform .18s,box-shadow .18s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px #11182712}
+    .primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .panel{background:var(--soft);border:1px solid #e9edf3;border-radius:26px;padding:28px;margin-top:34px}
+    .panel-top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:24px}
+    .panel-top h2{margin:0;font-size:24px;letter-spacing:-.03em}
+    .pill{font-size:11px;font-weight:800;letter-spacing:.12em;border-radius:999px;background:#fff;border:1px solid var(--line);padding:7px 10px;color:#475569}
+    .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .tile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;min-height:150px}
+    .tile .ico{font-size:24px;margin-bottom:12px}
+    .tile h3{font-size:17px;margin:0 0 5px}
+    .tile p{font-size:13px;color:var(--muted);margin:0}
+    section.content{padding:62px 0}
+    .section-head{max-width:680px;margin-bottom:28px}
+    .kicker{color:var(--blue);font-size:12px;font-weight:850;letter-spacing:.15em;text-transform:uppercase}
+    h2{font-size:clamp(29px,4vw,42px);line-height:1.15;letter-spacing:-.04em;margin:9px 0 12px}
+    .section-head p,.about-copy{color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+    .about-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}
+    .about-card h3{margin:0 0 8px}
+    .about-card p{color:var(--muted);margin:0}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{border:1px solid var(--line);border-radius:20px;padding:23px;display:flex;flex-direction:column;min-height:220px}
+    .project .num{font-size:12px;color:var(--blue);font-weight:850;letter-spacing:.12em}
+    .project h3{margin:18px 0 8px;font-size:19px}
+    .project p{color:var(--muted);font-size:14px;margin:0 0 18px}
+    .project a{margin-top:auto;font-size:13px;font-weight:800;color:var(--blue)}
+    .contact{background:var(--ink);color:#fff;border-radius:26px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .contact p{color:#cbd5e1;max-width:550px;margin:10px 0 0}
+    .contact .btn{background:#fff;color:var(--ink);border-color:#fff;white-space:nowrap}
+    footer{padding:28px 0;color:var(--muted);font-size:12px}
+    .foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
+    @media(max-width:760px){
+      .links{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;padding:18px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:16px}
+      .links.open{display:flex}.menu{display:block}
+      .hero{padding:66px 0 48px}.tiles,.projects{grid-template-columns:1fr}
+      .tile{min-height:auto}.about-grid{grid-template-columns:1fr}
+      .panel{padding:18px}.panel-top{align-items:flex-start;flex-direction:column}
+      .contact{padding:26px;align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#home" aria-label="The Brand Op home">
+      <span class="mark">B.</span>
+      <span>THE BRAND OP<small>CREATOR · GAMER · BRAND</small></span>
+    </a>
+    <button class="menu" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="links" id="navLinks">
+      <a href="#about">About</a><a href="#work">My Work</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+<main id="home">
+  <div class="wrap hero">
+    <span class="eyebrow"><span class="dot"></span> OFFICIAL PERSONAL PORTFOLIO</span>
+    <h1>Creating. Gaming.<br><span class="gradient">Building a Brand.</span></h1>
+    <p class="intro">Welcome to my world — a place for my content, gaming, creative projects and the journey of building something bigger.</p>
+    <div class="actions">
+      <a class="btn primary" href="#work">Explore My Work <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="#contact">Connect with me</a>
+    </div>
+    <div class="panel">
+      <div class="panel-top"><h2>What I'm about</h2><span class="pill">MY JOURNEY</span></div>
+      <div class="tiles">
+        <article class="tile"><div class="ico" aria-hidden="true">🎮</div><h3>Gaming</h3><p>Gameplay, live streams and gaming content.</p></article>
+        <article class="tile"><div class="ico" aria-hidden="true">🎬</div><h3>Content Creation</h3><p>Videos, edits and creative ideas made to stand out.</p></article>
+        <article class="tile"><div class="ico" aria-hidden="true">✦</div><h3>Building a Brand</h3><p>Learning, experimenting and turning ideas into projects.</p></article>
+      </div>
+    </div>
+  </div>
+  <section class="content wrap" id="about">
+    <div class="section-head"><span class="kicker">A little about me</span><h2>Driven by ideas. Focused on growth.</h2><p class="about-copy">I'm The Brand Op — a creator interested in gaming, digital content and bringing new ideas to life. This website is my home on the internet, where I can share what I make and what I'm working toward.</p></div>
+    <div class="about-grid">
+      <div class="about-card"><h3>My vision</h3><p>Build a recognisable personal brand through consistent creativity, quality content and projects that keep getting better.</p></div>
+      <div class="about-card"><h3>What you'll find here</h3><p>My latest videos, featured projects, social links and the best way to contact me for collaborations.</p></div>
+    </div>
+  </section>
+  <section class="content wrap" id="work">
+    <div class="section-head"><span class="kicker">Selected work</span><h2>Things I'm creating</h2><p>Replace these sample cards with your real channels, videos and projects when you're ready.</p></div>
+    <div class="projects">
+      <article class="project"><span class="num">01 / GAMING</span><h3>Gaming & Live Streams</h3><p>Gameplay highlights, updates and live-stream content.</p><a href="#contact">Add my gaming link ↗</a></article>
+      <article class="project"><span class="num">02 / VIDEO</span><h3>Video Content</h3><p>Videos, shorts, edits and experiments in content creation.</p><a href="#contact">Add my video channel ↗</a></article>
+      <article class="project"><span class="num">03 / PROJECTS</span><h3>Creative Projects</h3><p>New ideas, personal projects and future brand plans.</p><a href="#contact">Explore collaborations ↗</a></article>
+    </div>
+  </section>
+  <section class="content wrap" id="contact">
+    <div class="contact">
+      <div><span class="kicker" style="color:#93c5fd">LET'S CONNECT</span><h2>Have an idea? Let's talk.</h2><p>Follow my work or reach out about content, creative projects and collaborations. Add your real social links before publishing.</p></div>
+      <a class="btn" href="mailto:hello@example.com">Email me ↗</a>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> The Brand Op. All rights reserved.</span><span>Made for the next chapter.</span></div></footer>
+<script>
+  const menuBtn=document.getElementById('menuBtn');
+  const navLinks=document.getElementById('navLinks');
+  menuBtn.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));});
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}));
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
